@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Views.EventoCadastro());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

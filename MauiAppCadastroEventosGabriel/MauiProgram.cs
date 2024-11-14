@@ -13,6 +13,7 @@ namespace MauiAppCadastroEventosGabriel
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Unlock-Regular.ttf", "Unlock");
                 });
 
 #if DEBUG
