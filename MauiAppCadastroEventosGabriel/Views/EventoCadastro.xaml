@@ -1,104 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiAppCadastroEventosGabriel.Models"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="MauiAppCadastroEventosGabriel.Views.EventoCadastro"
-             Title="EventoCadastro"
+             Title="Cadastro de Evento"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
- 
-            <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10" Margin="10">
-                
-        <Label 
-            Text="Cadastro do Evento" 
-            FontFamily="Unlock" 
-            FontSize="50" 
-            TextColor="{StaticResource Primary}" />
+
+    <ContentPage.BindingContext>
+        <local:Evento />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10" Margin="10">
+        <Label Text="Cadastro do Evento" FontFamily="Unlock" FontSize="50" TextColor="{StaticResource Primary}" />
 
         <VerticalStackLayout Spacing="10">
-
-            <Label Text="Insira o Nome do Evento" 
-                   TextTransform="Uppercase"
-                   FontSize="Subtitle" 
-                   TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_Nome_do_Evento" 
-                   FontSize="Medium" 
-                   TextColor="White" />
+            <Label Text="Insira o Nome do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <Entry x:Name="txt_Nome_do_Evento" Text="{Binding NomeDoEvento}" FontSize="Medium" TextColor="White" />
         </VerticalStackLayout>
 
         <VerticalStackLayout Spacing="10">
-
-            <Label Text="Insira o Local do Evento" 
-                   TextTransform="Uppercase"
-                   FontSize="Subtitle" 
-                   TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_Local_do_Evento" 
-                   FontSize="Medium" 
-                   TextColor="White" />
+            <Label Text="Insira o Local do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <Entry x:Name="txt_Local_do_Evento" Text="{Binding NomeDoLocal}" FontSize="Medium" TextColor="White" />
         </VerticalStackLayout>
 
         <VerticalStackLayout Spacing="10">
-                
-            <Label Text="Número de Participantes" 
-                   TextTransform="Uppercase" 
-                   FontSize="Subtitle" 
-                   TextColor="{StaticResource Secondary}"/>
-                
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
-                
-                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, 2*"
-                      ColumnSpacing="10">
-                    
-                    <Label Grid.Row="0" Grid.Column="0" Text="Nº Participantes:" />
-                    
-                    <Label Grid.Row="0" 
-                           Grid.Column="1" 
-                           TextColor="{StaticResource Primary}" 
-                           Text="{Binding Value}" 
-                           BindingContext="{x:Reference stp_participantes}"/>
+            <Label Text="Data de Início" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <DatePicker x:Name="dtpck_DataInicio" Date="{Binding DataInicio}" Format="dd/MM/yyyy" MinimumDate="{x:Static sys:DateTime.Today}" />
+        </VerticalStackLayout>
 
-                    <Stepper Grid.Row="0" 
-                             Grid.Column="2" 
-                             x:Name="stp_participantes" 
-                             Minimum="0" 
-                             Maximum="10" 
-                             Increment="1" />
-                </Grid>
-                
-            </HorizontalStackLayout>
-                
-        </VerticalStackLayout>
-        
         <VerticalStackLayout Spacing="10">
-            
-            <Label Text="Período do Evento" 
-                   TextTransform="Uppercase" 
-                   FontSize="Subtitle" 
-                   TextColor="{StaticResource Secondary}"/>
-            
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                
-                <Label Text="Data de Início:" />
-                
-                <DatePicker x:Name="dtpck_checkin" 
-                            Format="dd/MM/yyyy" />
-                
-            </HorizontalStackLayout>
-            
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                
-                <Label Text="Data de Término:" />
-                
-                <DatePicker x:Name="dtpck_checkout" 
-                            Format="dd/MM/yyyy" />
-                
-            </HorizontalStackLayout>
-            
+            <Label Text="Data de Término" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <DatePicker x:Name="dtpck_DataTermino" Date="{Binding DataTermino}" Format="dd/MM/yyyy" MinimumDate="{Binding DataInicio}" />
         </VerticalStackLayout>
-            
-        <Button Text="Avançar"
-                BackgroundColor="{StaticResource Primary}"/>
-            
+
+        <VerticalStackLayout Spacing="10">
+            <Label Text="Número de Participantes" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <Entry x:Name="txt_NumeroDeParticipantes" Text="{Binding NumeroDeParticipantes}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="10">
+            <Label Text="Custo por Participante" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+            <Entry x:Name="txt_ValorParticipante" Text="{Binding ValorParticipante}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
+        </VerticalStackLayout>
+
+        <Button Text="Avançar" Clicked="OnAvancarClicked" BackgroundColor="{StaticResource Primary}" />
     </VerticalStackLayout>
-
-
 </ContentPage>

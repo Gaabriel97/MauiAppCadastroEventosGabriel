@@ -2,11 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppCadastroEventosGabriel.Views.EventoCadastrado"
-             Title="EventoCadastrado">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Evento Cadastrado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10" Margin="10">
+            <Label Text="Evento Cadastrado com Sucesso!" FontFamily="Unlock" FontSize="50" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            <Frame Margin="10" BackgroundColor="DarkSlateGray">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10">
+                    <Label Text="Nome do Evento:" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                    <Label Text="{Binding NomeDoEvento}" FontSize="20" TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Margin="10" BackgroundColor="DarkSlateGray">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10">
+                    <Label Text="Local do Evento:" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                    <Label Text="{Binding NomeDoLocal}" FontSize="20" TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Margin="10" BackgroundColor="DarkSlateGray">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10">
+                    <Label Text="Número de Participantes:" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                    <Label Text="{Binding NumeroDeParticipantes}" FontSize="20" TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Margin="10" BackgroundColor="DarkSlateGray">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10">
+                    <Label Text="Período do Evento:" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                    <Grid ColumnDefinitions="*, *, *" RowSpacing="10" RowDefinitions="Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Início:" TextColor="{StaticResource Primary}" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Término:" TextColor="{StaticResource Primary}" />
+                        <Label Grid.Row="0" Grid.Column="2" Text="Duração" TextColor="{StaticResource Primary}" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}" />
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding Duracao.Days}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Margin="10" BackgroundColor="DarkSlateGray">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10">
+                    <Label Text="Valor Total:" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                    <Label Text="{Binding CustoTotal, StringFormat='R$ {0:F2}'}" FontSize="20" TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Voltar" Clicked="Button_Clicked" BackgroundColor="{StaticResource Primary}" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

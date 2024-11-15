@@ -1,9 +1,18 @@
-namespace MauiAppCadastroEventosGabriel.Views;
+using MauiAppCadastroEventosGabriel.Models;
 
-public partial class EventoCadastrado : ContentPage
+namespace MauiAppCadastroEventosGabriel.Views
 {
-	public EventoCadastrado()
-	{
-		InitializeComponent();
-	}
+    public partial class EventoCadastrado : ContentPage
+    {
+        public EventoCadastrado()
+        {
+            InitializeComponent();
+            BindingContext = App.EventoAtual;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+    }
 }
