@@ -12,6 +12,6 @@ namespace MauiAppCadastroEventosGabriel.Models
         public double ValorParticipante { get; set; }
 
         public TimeSpan Duracao => DataTermino - DataInicio;
-        public double CustoTotal => NumeroDeParticipantes * ValorParticipante * (Duracao.Days + 1);
+        public double CustoTotal => NumeroDeParticipantes * ValorParticipante * Duracao.Days ;
     }
 }

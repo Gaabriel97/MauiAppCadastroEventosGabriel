@@ -12,39 +12,44 @@
         <local:Evento />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10" Margin="10">
-        <Label Text="Cadastro do Evento" FontFamily="Unlock" FontSize="50" TextColor="{StaticResource Primary}" />
+    <ScrollView>
 
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Insira o Nome do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_Nome_do_Evento" Text="{Binding NomeDoEvento}" FontSize="Medium" TextColor="White" />
+        <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10" Spacing="10" Margin="10">
+            <Label Text="Cadastro do Evento" FontFamily="Unlock" FontSize="50" TextColor="{StaticResource Primary}" />
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Insira o Nome do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <Entry x:Name="txt_Nome_do_Evento" Text="{Binding NomeDoEvento}" FontSize="Medium" TextColor="White" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Insira o Local do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <Entry x:Name="txt_Local_do_Evento" Text="{Binding NomeDoLocal}" FontSize="Medium" TextColor="White" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Data de Início" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <DatePicker x:Name="dtpck_DataInicio" Date="{Binding DataInicio}" Format="dd/MM/yyyy" MinimumDate="{x:Static sys:DateTime.Today}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Data de Término" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <DatePicker x:Name="dtpck_DataTermino" Date="{Binding DataTermino}" Format="dd/MM/yyyy" MinimumDate="{Binding DataInicio}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Número de Participantes" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <Entry x:Name="txt_NumeroDeParticipantes" Text="{Binding NumeroDeParticipantes}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Custo por Participante" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
+                <Entry x:Name="txt_ValorParticipante" Text="{Binding ValorParticipante}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <Button Text="Avançar" Clicked="OnAvancarClicked" BackgroundColor="{StaticResource Primary}" />
         </VerticalStackLayout>
 
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Insira o Local do Evento" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_Local_do_Evento" Text="{Binding NomeDoLocal}" FontSize="Medium" TextColor="White" />
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Data de Início" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <DatePicker x:Name="dtpck_DataInicio" Date="{Binding DataInicio}" Format="dd/MM/yyyy" MinimumDate="{x:Static sys:DateTime.Today}" />
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Data de Término" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <DatePicker x:Name="dtpck_DataTermino" Date="{Binding DataTermino}" Format="dd/MM/yyyy" MinimumDate="{Binding DataInicio}" />
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Número de Participantes" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_NumeroDeParticipantes" Text="{Binding NumeroDeParticipantes}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Custo por Participante" TextTransform="Uppercase" FontSize="Subtitle" TextColor="{StaticResource Secondary}" />
-            <Entry x:Name="txt_ValorParticipante" Text="{Binding ValorParticipante}" FontSize="Medium" TextColor="White" Keyboard="Numeric" />
-        </VerticalStackLayout>
-
-        <Button Text="Avançar" Clicked="OnAvancarClicked" BackgroundColor="{StaticResource Primary}" />
-    </VerticalStackLayout>
+    </ScrollView>
+    
 </ContentPage>

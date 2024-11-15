@@ -9,7 +9,7 @@ namespace MauiAppCadastroEventosGabriel.Views
             InitializeComponent();
             BindingContext = App.EventoAtual;
 
-            dtpck_DataInicio.MinimumDate = DateTime.Now;
+            dtpck_DataInicio.MinimumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
             dtpck_DataInicio.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day);
 
             dtpck_DataTermino.MinimumDate = dtpck_DataInicio.Date.AddDays(1);
